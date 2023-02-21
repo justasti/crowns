@@ -1,5 +1,15 @@
 import { useContext, useRef } from 'react'
-import { PlayersContext } from '../../context/players.context'
+import { PlayersContext } from '../../../context/players.context'
+import {
+  PointsAddButton,
+  ContainerLeft,
+  ContainerRight,
+  PlayerContainer,
+  PlayerName,
+  PlayerPointsInput,
+  PlayerScore,
+  PlayerPoints,
+} from './player.styles'
 
 const Player = ({ player }) => {
   const { removePlayer, addPlayerScore } = useContext(PlayersContext)
@@ -12,40 +22,41 @@ const Player = ({ player }) => {
       type === 'increase'
         ? playerScoreRef.current.value
         : -playerScoreRef.current.value
+
+    if (!score) return
     addPlayerScore(player.id, score)
 
     playerScoreRef.current.value = ''
   }
 
   return (
-    <div className='player_container' onClick={() => removePlayer(player.id)}>
-      <div className='container_left'>
-        <p className='player_name'>{player.name}</p>
-        <div className='player_points'>
+    <PlayerContainer onClick={() => removePlayer(player.id)}>
+      <ContainerLeft>
+        <PlayerName>{player.name}</PlayerName>
+        <PlayerPoints>
           <form onSubmit={(e) => handlePlayerScoreChange(e)}>
-            <button
+            <PointsAddButton
               type='button'
               className='btn_add'
               style={{ color: 'red' }}
               onClick={(e) => handlePlayerScoreChange(e, 'decrease')}
             >
               -
-            </button>
-            <input
+            </PointsAddButton>
+            <PlayerPointsInput
               id={player.id}
               type='number'
-              className='player_points-input'
               ref={playerScoreRef}
               placeholder='taškai'
             />
-            <button className='btn_add'>+</button>
+            <PointsAddButton>+</PointsAddButton>
           </form>
-        </div>
-      </div>
-      <div className='container_right'>
-        <p className='player_score'>{player.score}</p>
-      </div>
-    </div>
+        </PlayerPoints>
+      </ContainerLeft>
+      <ContainerRight>
+        <PlayerScore>{player.score}</PlayerScore>
+      </ContainerRight>
+    </PlayerContainer>
   )
 }
 export default Player

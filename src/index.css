@@ -9,11 +9,9 @@
   font-family: 'Anonymous Pro', monospace;
   font-weight: 500;
 }
-
 body {
   background-color: #420f60;
 }
-
 #root {
   display: flex;
   flex-direction: column;
@@ -22,122 +20,4 @@ body {
 img {
   width: min(300px, 90%);
   margin-block: 1rem 3rem;
-}
-.player_container {
-  display: flex;
-  width: min(500px, 80%);
-  margin-bottom: 1rem;
-}
-
-.container_left {
-  padding: 1rem;
-  padding-right: 0;
-  height: 100px;
-  background-color: #edd9a3;
-  border-radius: 10px 0 0 10px;
-  width: calc(100% - 100px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.player_name {
-  font-size: 2rem;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-.player_points {
-  position: relative;
-}
-.player_points-input {
-  background-color: transparent;
-  font-size: 1.75rem;
-  font-weight: 500;
-  padding: 0.25rem;
-  color: #420f60;
-  width: 100px;
-  height: 2rem;
-  outline: none;
-  border: 2px #420f60 dotted;
-  border-right: none;
-}
-.btn_add {
-  left: 120px;
-  bottom: 0px;
-  background-color: #420f60;
-  width: 2rem;
-  height: 2rem;
-  display: grid;
-  place-content: center;
-  color: rgb(52, 195, 52);
-  font-size: 2rem;
-  font-weight: bold;
-}
-.container_right {
-  height: 100px;
-  width: 100px;
-  border-radius: 0 10px 10px 0;
-  background-color: #fcbf49;
-  display: grid;
-  place-content: center;
-}
-.player_score {
-  margin: 0;
-  padding: 0;
-  font-size: 2.75rem;
-  font-weight: bold;
-  color: #420f60;
-}
-h1 {
-  color: #edd9a3;
-  text-transform: uppercase;
-  font-weight: bold;
-  margin-block: 2rem 1rem;
-}
-.new_player {
-  display: flex;
-}
-.new_player > input {
-  color: #fff;
-}
-.wide {
-  border-color: #edd9a3;
-  width: 300px;
-  color: #edd9a3;
-}
-.btn_add-alt {
-  background-color: #edd9a3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgb(26, 138, 26);
-  font-size: 2rem;
-  font-weight: bold;
-  width: 2rem;
-  height: 2rem;
-}
-
-.end_game {
-  font-size: 2rem;
-  font-weight: bold;
-  color: red;
-  cursor: pointer;
-}
-.reset_game {
-  font-size: 2.75rem;
-  font-weight: bold;
-  color: green;
-  display: grid;
-  place-content: center;
-  cursor: pointer;
-  margin-right: 1rem;
-}
-.game_buttons {
-  display: flex;
-  align-items: baseline;
-  align-self: end;
-  padding: 1rem;
-}
-form {
-  display: flex;
-  align-items: center;
 }

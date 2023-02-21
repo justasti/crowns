@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import GameButtons from './components/game/game-buttons'
-import NewPlayer from './components/players/new-player.component'
-import Players from './components/players/players.component'
+import GameButtons from './components/game/game-buttons/game-buttons.component'
+import NewPlayer from './components/players/new-player/new-player.component'
+import Players from './components/players/players/players.component'
 import { PlayersContext } from './context/players.context'
 
 function App() {

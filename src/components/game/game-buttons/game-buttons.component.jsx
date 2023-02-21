@@ -1,5 +1,11 @@
-import { PlayersContext } from '../../context/players.context'
+import { PlayersContext } from '../../../context/players.context'
 import { useContext } from 'react'
+import {
+  GameButtonsContainer,
+  ResetButton,
+  StyledResetSvg,
+  StyledTimesSvg,
+} from './game-buttons.styles'
 
 const GameButtons = () => {
   const { players, setPlayers, resetPlayerScore } = useContext(PlayersContext)
@@ -19,14 +25,15 @@ const GameButtons = () => {
   }
 
   return (
-    <div className='game_buttons'>
-      <p className='reset_game' onClick={resetGame}>
-        &#8634;
-      </p>
-      <p className='end_game' onClick={endGame}>
-        &#10005;
-      </p>
-    </div>
+    <GameButtonsContainer>
+      <ResetButton onClick={resetGame}>
+        <StyledResetSvg />
+        Pradėti iš naujo
+      </ResetButton>
+      <ResetButton onClick={endGame}>
+        <StyledTimesSvg /> Ištrinti žaidėjus
+      </ResetButton>
+    </GameButtonsContainer>
   )
 }
 export default GameButtons

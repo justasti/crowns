@@ -1,5 +1,10 @@
-import { PlayersContext } from '../../context/players.context'
+import { PlayersContext } from '../../../context/players.context'
 import { useContext, useRef } from 'react'
+import {
+  NewPlayerTitle,
+  NewPlayerContainer,
+  AddPlayerButton,
+} from './new-player.styles'
 
 const NewPlayer = () => {
   const { addNewPlayer } = useContext(PlayersContext)
@@ -15,18 +20,13 @@ const NewPlayer = () => {
   }
   return (
     <>
-      <h1>Pridėti žaidėją</h1>
-      <div className='new_player'>
+      <NewPlayerTitle>Pridėti žaidėją</NewPlayerTitle>
+      <NewPlayerContainer>
         <form onSubmit={handleAddNewPlayer}>
-          <input
-            placeholder='žaidėjo vardas'
-            type='text'
-            ref={newPlayerRef}
-            className='player_points-input wide'
-          />
-          <button className='btn_add-alt'>+</button>
+          <input placeholder='žaidėjo vardas' type='text' ref={newPlayerRef} />
+          <AddPlayerButton>+</AddPlayerButton>
         </form>
-      </div>
+      </NewPlayerContainer>
     </>
   )
 }
