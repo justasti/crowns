@@ -21,7 +21,7 @@ export const GameButtonsContainer = styled.div`
   margin-top: 2rem;
 `
 
-export const ResetButton = styled.button`
+export const GameActionsButton = styled.button`
   outline: none;
   padding: 0.5rem 1rem;
   width: 80%;
