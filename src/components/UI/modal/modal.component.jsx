@@ -1,4 +1,5 @@
 import React from 'react'
+import { createPortal } from 'react-dom'
 import {
   ModalWrapper,
   ModalBackdrop,
@@ -14,7 +15,7 @@ const Modal = ({ message, onConfirm, onCancel }) => {
       onCancel()
     }
   }
-  return (
+  return createPortal(
     <ModalWrapper>
       <ModalBackdrop onClick={handleBackdropClick}></ModalBackdrop>
       <ModalBody>
@@ -24,7 +25,8 @@ const Modal = ({ message, onConfirm, onCancel }) => {
           <ModalCancelButton onClick={onCancel}>No</ModalCancelButton>
         </div>
       </ModalBody>
-    </ModalWrapper>
+    </ModalWrapper>,
+    document.getElementById('portal')
   )
 }
 

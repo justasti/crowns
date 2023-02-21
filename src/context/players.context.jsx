@@ -10,8 +10,6 @@ export const PlayersContext = createContext({
 })
 
 export const PlayersProvider = ({ children }) => {
-  let confirmRemove = 0
-
   const [players, setPlayers] = useState(
     JSON.parse(localStorage.getItem('players')) || []
   )

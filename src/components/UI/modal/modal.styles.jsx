@@ -11,7 +11,7 @@ export const ModalWrapper = styled.div`
   justify-content: center;
 `
 export const ModalBackdrop = styled.div`
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -25,6 +25,7 @@ export const ModalBody = styled.div`
   border-radius: 0.5rem;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   width: min(90%, 350px);
+  z-index: 4;
 `
 export const ModalHeader = styled.h2`
   font-size: 1.5rem;
