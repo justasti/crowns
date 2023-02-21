@@ -43,15 +43,9 @@ export const PlayersProvider = ({ children }) => {
   }
 
   const removePlayer = (playerId) => {
-    confirmRemove++
-    setTimeout(() => {
-      confirmRemove = 0
-    }, 150)
-    if (confirmRemove === 2) {
-      setPlayers((prevState) =>
-        prevState.filter((player) => player.id !== playerId)
-      )
-    }
+    setPlayers((prevState) =>
+      prevState.filter((player) => player.id !== playerId)
+    )
   }
 
   const addPlayerScore = (playerId, score, type = 'increase') => {

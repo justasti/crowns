@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useContext, useRef } from 'react'
 import { PlayersContext } from '../../../context/players.context'
 import {
@@ -10,10 +11,12 @@ import {
   PlayerScore,
   PlayerPoints,
 } from './player.styles'
+import Modal from '../../UI/modal/modal.component'
 
 const Player = ({ player }) => {
   const { removePlayer, addPlayerScore } = useContext(PlayersContext)
   const playerScoreRef = useRef('')
+  const [showModal, setShowModal] = useState(false)
 
   const handlePlayerScoreChange = (e, type = 'increase') => {
     e.preventDefault()
@@ -29,8 +32,25 @@ const Player = ({ player }) => {
     playerScoreRef.current.value = ''
   }
 
+  const timeoutRef = useRef(null)
+
+  const startTouch = () => {
+    timeoutRef.current = setTimeout(() => {
+      setShowModal(true)
+    }, 700)
+  }
+
+  const endTouch = () => {
+    clearInterval(timeoutRef.current)
+  }
+
+  const confirmDelete = () => {
+    removePlayer(player.id)
+    setShowModal(false)
+  }
+
   return (
-    <PlayerContainer onClick={() => removePlayer(player.id)}>
+    <PlayerContainer onTouchStart={startTouch} onTouchEnd={endTouch}>
       <ContainerLeft>
         <PlayerName>{player.name}</PlayerName>
         <PlayerPoints>
@@ -56,6 +76,13 @@ const Player = ({ player }) => {
       <ContainerRight>
         <PlayerScore>{player.score}</PlayerScore>
       </ContainerRight>
+      {showModal && (
+        <Modal
+          message={`Ištrinti žaidėją ${player.name}?`}
+          onConfirm={confirmDelete}
+          onCancel={() => setShowModal(false)}
+        />
+      )}
     </PlayerContainer>
   )
 }
